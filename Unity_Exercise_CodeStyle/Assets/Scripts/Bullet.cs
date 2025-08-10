@@ -5,16 +5,16 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-    public Rigidbody Rigidbody;
+    private Rigidbody _rigidbody;
 
     private void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public void Shoot(Vector3 direction)
     {
         transform.up = direction;
-        Rigidbody.velocity = direction * _speed;
+        _rigidbody.velocity = direction * _speed;
     }
 }

@@ -8,7 +8,7 @@ public class Mover : MonoBehaviour
 
     private int _currentWaypointIndex;
 
-    void Start()
+    private void Start()
     {
         _waypoints = new Transform[_allWayoints.childCount];
 
@@ -20,6 +20,7 @@ public class Mover : MonoBehaviour
     {
         Transform currentWaypoint = _waypoints[_currentWaypointIndex];
         transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, _speed * Time.deltaTime);
+        transform.LookAt(currentWaypoint);
 
         if (transform.position == currentWaypoint.position)
             _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length;

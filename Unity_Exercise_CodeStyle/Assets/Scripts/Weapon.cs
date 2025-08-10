@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        RestartCoroutine();
+        StartCoroutine();
     }
 
     public void StopCoroutine()
@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
             StopCoroutine(_coroutine);
     }
 
-    private void RestartCoroutine()
+    private void StartCoroutine()
     {
         _coroutine = StartCoroutine(Shoot());
     }
